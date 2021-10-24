@@ -1,0 +1,15 @@
+@import "./mixins", "./colors";
+
+.layout {
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: hidden;
+  @include verticalFlex;
+
+  .body {
+    display: flex;
+    flex: 1;
+    max-height: calc(100vh - 47px);
+    position: relative;
+  }
+}

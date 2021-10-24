@@ -1,0 +1,127 @@
+@import "./colors", "./mixins";
+
+.search-n-sort {
+  @include centerVer;
+
+  .search {
+    @include centerVer;
+    justify-content: space-between;
+    padding: 0 15px;
+    height: 42px;
+    width: 100%;
+    max-width: 465px;
+    background-color: $searchBox;
+    border: 1px solid $borders;
+    border-radius: 6px;
+
+    &.focused {
+      outline: 3px solid rgba(52, 152, 255, 0.25);
+      border-color: #3498ff;
+    }
+
+    input {
+      flex: 1;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      height: 100%;
+      color: $fontSec;
+
+      &::placeholder {
+        color: $fontSec;
+        font-family: "Noto Sans Display", sans-serif;
+        font-weight: 300;
+      }
+    }
+
+    img.clear {
+      cursor: pointer;
+      transform: rotate(45deg);
+    }
+  }
+
+  .sort {
+    margin-left: 30px;
+    @include centerVer;
+    font-weight: 300;
+    cursor: pointer;
+    position: relative;
+
+    img {
+      margin-left: 8px;
+    }
+
+    .pop-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      right: 0;
+      z-index: 2;
+      background-color: $lightest;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.06);
+      animation: pop-menu-in 0.2s ease forwards;
+
+      span {
+        box-sizing: border-box;
+        padding: 15px 50px 15px 15px;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 400;
+        font-size: 14px;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $borders;
+        }
+
+        &:first-child {
+          border-radius: 6px 6px 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 0 6px 6px;
+        }
+
+        &:hover,
+        &.active {
+          background-color: $mainBg;
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        z-index: -1;
+        border-radius: 2px;
+        transform: rotate(45deg);
+        background-color: $lightest;
+        right: 10px;
+        top: -8px;
+      }
+    }
+  }
+}
+
+@media (max-width: 340px) {
+  .search-n-sort {
+    .sort {
+      margin-left: 8px;
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+@keyframes pop-menu-in {
+  from {
+    top: calc(100% + 8px);
+  }
+  to {
+    top: calc((100% + 14px));
+  }
+}

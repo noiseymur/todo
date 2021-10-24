@@ -1,0 +1,86 @@
+@import "./mixins", "./colors";
+
+.sidebar {
+  width: 280px;
+  height: 100%;
+  overflow: hidden;
+  background-color: $lightest;
+  transition: all 0.2s ease;
+
+  .toggle {
+    height: 82px;
+    width: 100%;
+    @include centerVer;
+    justify-content: flex-end;
+    padding-right: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  .toggle.closed img {
+    transform: rotate(180deg);
+  }
+
+  .categories .category {
+    @include centerVer;
+    min-width: 280px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 40px;
+    font-weight: 300;
+    color: $fontPrm;
+    text-transform: capitalize;
+    padding-left: 50px;
+    padding-right: 20px;
+    position: relative;
+    cursor: pointer;
+
+    &.active,
+    &:hover {
+      background: linear-gradient(90deg, #f2f2f2 0%, #ffffff 100%);
+    }
+
+    &.active {
+      font-weight: 400;
+    }
+
+    img {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    span {
+      color: $fontSec;
+      font-size: 14px;
+    }
+  }
+
+  &.closed {
+    width: 50px;
+    min-width: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    box-sizing: border-box;
+
+    .toggle {
+      display: none;
+    }
+
+    &.closed {
+      width: 0;
+      min-width: 0;
+    }
+  }
+}

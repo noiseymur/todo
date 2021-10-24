@@ -1,0 +1,33 @@
+@import "./colors", "./mixins";
+
+header {
+  @include centerVer;
+  position: relative;
+  height: 47px;
+  min-height: 47px;
+  padding: 0 25px;
+  background-color: $mainLight;
+
+  img:first-child {
+    display: none;
+  }
+
+  img:last-child {
+    height: 33px;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    padding: 0 60px;
+
+    img:first-child {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 25px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+}

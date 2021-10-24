@@ -1,0 +1,20 @@
+@mixin centerBoth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin centerVer {
+  display: flex;
+  align-items: center;
+}
+
+@mixin centerHor {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin verticalFlex {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,11 @@
+export const ADD_TODOS = "ADD_TODOS";
+export const DELETE_TODO = "DELETE_TODO";
+export const SELECT_TODO = "SELECT_TODO";
+export const TOGGLE_CHECK = "TOGGLE_CHECK";
+export const SET_DATE = "SET_DATE";
+export const TOGGLE_URGENT = "TOGGLE_URGENT";
+export const SET_SEARCH = "SET_SEARCH";
+export const SET_CATEGORY = "SET_CATEGORY";
+export const UPDATE_CATEGORIES = "UPDATE_CATEGORIES";
+export const TOGGLE_SIDEBAR = "TOGGLE_SIDEBAR";
+export const SET_SORTING = "SET_SORTING";

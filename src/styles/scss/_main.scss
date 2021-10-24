@@ -1,0 +1,125 @@
+@import "./colors", "./mixins";
+
+main {
+  padding: 20px;
+  padding-bottom: 0;
+  background-color: $mainBg;
+  flex: 1;
+
+  .container {
+    @include verticalFlex;
+    height: 100%;
+  }
+
+  .title-n-tools {
+    @include centerVer;
+
+    h2 {
+      font-size: 22px;
+      font-weight: 500;
+      color: $mainDark;
+      margin: 18px 5px;
+      flex: 1;
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+
+    .del-btn {
+      @include centerVer;
+      padding: 0 10px;
+      cursor: pointer;
+      height: 35px;
+      border-radius: 6px;
+      background-color: $deleteRed;
+      color: $lightest;
+      font-weight: 400;
+      margin-left: 12px;
+
+      img {
+        margin-left: 5px;
+        height: 20px;
+      }
+    }
+  }
+
+  .todos {
+    flex: 1;
+    max-height: 100%;
+    background-color: $lightest;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    .todos-list {
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    p.completed {
+      font-family: "Noto Sans Display", sans-serif;
+      font-weight: 500;
+      color: $fontPrm;
+      margin: 25px 0 25px 20px;
+      font-size: 18px;
+
+      span {
+        margin-left: 15px;
+        font-weight: 200;
+        color: $fontSec;
+      }
+    }
+
+    .separator {
+      width: calc(100%);
+      height: 1px;
+      background-color: $borders;
+
+      &.mt {
+        margin-top: 9px;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  main .title-n-tools .del-btn {
+    span {
+      display: none;
+    }
+    img {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  main .title-n-tools {
+    .rs-picker.rs-picker-date {
+      width: 40px;
+      height: 35px;
+      input.rs-picker-toggle-textbox,
+      .rs-picker-toggle-placeholder {
+        display: none;
+      }
+
+      svg {
+        position: absolute;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(calc(-50% - 2px), -50%);
+      }
+
+      .rs-picker-toggle {
+        height: 35px !important;
+        width: 40px !important;
+        padding: 0;
+      }
+    }
+  }
+
+  .rs-picker-date-menu {
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+}
